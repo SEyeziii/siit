@@ -1,71 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - JDM стили</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 20px;
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* Хедер */
+        .navbar {
+            background-color: #8a2be2; /* Темно-фиолетовый */
+            padding: 15px 30px;
+            overflow: hidden;
+            min-height: 60px;
+            margin: 0 -20px 20px -20px; /* Растягиваем на всю ширину */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            float: left;
+            text-decoration: none;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.2;
+            max-width: 60%;
+        }
+
+        .menu {
+            float: right;
+            white-space: nowrap;
+            margin-top: 5px;
+        }
+
+        .menu-btn {
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            color: black;
+        }
+
+        .menu-btn:hover, .menu-btn.active {
+            color: #8a2be2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Галерея */
+        .gallery {
+            width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            overflow: hidden;
+        }
+
+        .gallery-left {
+            float: left;
+            width: 50%;
+            padding-right: 5px;
+        }
+
+        .top-left-image, .bottom-image {
+            margin-bottom: 10px;
+        }
+
+        .top-left-image img, .bottom-image img {
+            width: 100%;
+            height: 120px;
+            display: block;
+            object-fit: cover;
+            border-radius: 0px;
+        }
+
+        .bottom-left-images {
+            overflow: hidden;
+        }
+
+        .bottom-image {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .bottom-image:first-child {
+            padding-right: 5px;
+        }
+
+        .bottom-image:last-child {
+            padding-left: 5px;
+        }
+
+        .gallery-right {
+            float: right;
+            width: 49%;
+        }
+
+        .right-image img {
+            width: 100%;
+            height: 250px;
+            display: block;
+            object-fit: cover;
+            border-radius: 0px;
+        }
+
+        /* Общие стили для блоков */
+        .block {
+            border: 2px solid #8a2be2;
+            border-radius: 20px;
+            padding: 15px;
+            position: relative;
+            background: #f5f0ff;
+            margin-bottom: 20px;
+        }
+
+        .transparent-block {
+            background: transparent;
+        }
+
+        h2, h3, h4 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .style-card h3,
+        .jdm-info h3 {
+            text-align: left;
+        }
+
+        p {
+            line-height: 1.4;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* Кнопки и ссылки */
+        .btn {
+            padding: 8px 15px;
+            background: #8a2be2;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .jdm-info .btn {
+            float: right;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #7a1bd2;
+        }
+
+        .link {
+            color: #8a2be2;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .styles-container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .style-card {
+            float: left;
+            width: 19%;
+            margin-right: 4%;
+            margin-left: 0.5%;
+        }
+
+        .style-detail {
+            float: left;
+            width: 50%;
+        }
+
+        .styles-row {
+            width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .style-item {
+            float: left;
+            width: 20%;
+            margin: 0 6%;
+        }
+
+        .info-row {
+            width: 75%;
+            margin: 20px auto;
+            overflow: hidden;
+            margin-right: 13.5%;
+        }
+
+        .street-info, .jdm-info {
+            float: right;
+            width: 35%;
+            margin-left: 5px;
+            margin-right: 5px;
+
+        }
+
+        .street-info {
+            float: left;
+            margin-right: 15px;
+            margin-left: 26%; /* Просто добавляем отступ слева */
+            width: 35%;
+            hight: 100%;
+        }
+
+        /* Содержимое блоков */
+        .style-item img, .street-info img, .style-detail img {
+            width: 100%;
+            height: auto;
+            max-height: 120px;
+            display: block;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .street-content {
+            float: right;
+            width: 70%;
+        }
+
+        .street-image {
+            float: left;
+            width: 25%;
+            margin-right: 15px;
+            hight: 10%;
+        }
+
+        /* Футер */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #222;
+            color: white;
+            border-radius: 10px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        hr {
+            width: 90%;
+            margin: 30px auto;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">JDM. Японские виды тюнинга</a>
+    </div>
+    <div class="menu">
+        <a href="main.html" class="menu-btn active">Главная</a>
+        <a href="table.html" class="menu-btn">Таблица машин</a>
+        <a href="#menu3" class="menu-btn">Стили</a>
+        <a href="#menu4" class="menu-btn">Галерея</a>
+    </div>
+</nav>
 
+<!-- Галерея -->
+<div class="gallery">
+    <div class="gallery-container">
+        <div class="gallery-left">
+            <a href="page1.html" class="top-left-image">
+                <img src="images/OEM.jpg" alt="OEM стиль">
+            </a>
+            <div class="bottom-left-images">
+                <a href="page2.html" class="bottom-image">
+                    <img src="images/Shakotan.png" alt="Shakotan стиль">
+                </a>
+                <a href="page3.html" class="bottom-image">
+                    <img src="images/Drift.png" alt="Drift стиль">
+                </a>
+            </div>
+        </div>
+        <div class="gallery-right">
+            <a href="page4.html" class="right-image">
+                <img src="images/jdm-main.jpg" alt="JDM культура">
+            </a>
+        </div>
+    </div>
+</div>
 
-<body background="image">
-    <nav class="menu">
-        <a href="main.html">Главная</a><br>
-        <a href="table.html">Таблица машин</a><br>
-    </nav>
-    <hr>
-    <h1 align="center">Стили JDM</h1>
+<!-- Первые два блока -->
+<div class="styles-container">
+    <div class="style-card block transparent-block">
+        <h3>OEM+ Стиль</h3>
+        <p>Философия: «Улучшить, не испортив». Самый уважаемый и сдержанный стиль. Устанавливают детали от спортивных версий, используют аксессуары от официальных тюнеров (Mugen, Nismo, TRD).</p>
+        <a href="#" class="btn">Подробнее>></a>
+    </div>
+    <div class="style-detail block">
+        <h3>Дрифт-стайл</h3>
+        <div class="style-content">
+            <p>Философия: Функциональность для дрифта. Внешний вид следует за цели. Широкие обвесы, вывернутые колеса, часто отсутствуют бамперы и фары ради легкости и вентиляции.</p>
+            <a href="#" class="link">Подробнее>></a>
+        </div>
+        <img src="images/Drift.png" alt="Дрифт-стайл">
+    </div>
+</div>
+
+<!-- Три блока стилей -->
+<div class="styles-row">
+    <div class="style-item block">
+        <h3>OEM+ Стиль</h3>
+        <p>Самый уважаемый и сдержанный стиль. Философия: «Улучшить, не испортив». Используются детали от спортивных версий той же модели, аксессуары от официальных тюнеров.</p>
+        <img src="images/OEM.jpg" alt="OEM стиль">
+        <a href="#" class="link">Подробнее>></a>
+    </div>
+    <div class="style-item block">
+        <img src="images/aafd9c4s-960.jpg" alt="Shakotan стиль">
+        <h3>Шакотан стиль</h3>
+        <p>Агрессивный, приземленный вид, вдохновленный уличными гонками 90-х. Очень низкая посадка, отрицательный развал колес, широкие диски с вывернутыми краями.</p>
+
+        <a href="#" class="link">Подробнее>></a>
+    </div>
+    <div class="style-item block">
+        <h3>Дрифт-стайл</h3>
+        <p>Функциональность для дрифта. Внешний вид следует за цель. Широкие обвесы для аэродинамики и защиты, вывернутые колеса с большим вылетом.</p>
+        <img src="images/OEM.jpg" alt="Drift стиль">
+        <a href="#" class="link">Подробнее>></a>
+    </div>
+</div>
+
+<!-- Два инфо-блока -->
+<div class="info-row">
+    <div class="street-info block">
+        <div class="street-image">
+            <img src="images/woody.jpg" alt="WOODY стиль">
+        </div>
+
+        <div class="street-content">
+            <h3>WOODY</h3>
+            <p>Это скорее дань ностальгии и уникальный визуальный тюнинг, чем стремление к скорости или спортивности. Woody — олдскульный, уютный и выделяющийся стиль.</p>
+            <a href="#" class="link">Подробнее>></a>
+        </div>
+    </div>
+    <div class="jdm-info block transparent-block">
+        <h3>Что такое JDM?</h3>
+        <p>Japanese Domestic Market — товары и автомобили для внутреннего рынка Японии. Со временем стал стилем тюнинга. Истинный дух JDM — функциональность, минимализм и уважение к инженерной мысли.</p>
+        <a href="#" class="btn">Подробнее>></a>
+    </div>
+</div>
+
 <hr>
-<h4>Что такое JDM? Важное уточнение</h4>
-<p>
-    Изначально термин JDM означает Japanese Domestic Market — то есть товары
-    и автомобили, предназначенные для внутреннего рынка Японии. Это могут быть
-    специфические модели (например, Honda Integra Type R), детали (фары, двигатели)
-    или опции, которых не было в других странах.
-</p>
-<p>
-    Со временем «JDM» стало обозначать стиль тюнинга, который вдохновлен этими японскими автомобилями и их гоночной культурой. Истинный дух JDM — это функциональность, минимализм и уважение к инженерной мысли.</p>
-</p>
-<p>
-    <a href="404.html"><img src="images/OEM.jpg" alt="OEM" width="200" height="300" hspace="10" align = 'middle'></a>
-    <font><b>Оригинальный / OEM+ Стиль (OEM+ Style)</b></font>
-<p><b>Философия:</b> «Улучшить, не испортив». Это самый уважаемый и сдержанный стиль.<p>
-    <p><b>Что делают:</b></p>
-    <ul>
-        <li>Устанавливают детали от более спортивных версий той же модели (например, диски от Honda S2000 Type S на обычную S2000).</li>
-        <li>Используют качественные аксессуары от официальных тюнеров (Mugen, Nismo, TRD, STI).</li>
-        <li>Легкий тюнинг подвески для улучшения управляемости.</li>
-        <li>Сохранение оригинального или почти оригинального внешнего вида.</li>
-        <li>Машины: Любые, но особенно ценится на классических японских иконах (Nissan Skyline GT-R, Toyota Supra, Honda NSX).</li>
-    </ul>
-</p>
-
-<p>
-    <a href="shakotan.html"><img src="images/Shakotan.png" alt="Shakotan" width="200" height="300" hspace="10" align = 'middle'></a>
-    <font><b>Стрит-стайл / Шакотан (Street Style / Shakotan)</b></font>
-<p><b>Философия:</b> Агрессивный, приземленный вид, вдохновленный японскими уличными гонками 90-х (например, гонками по трассе Wangan).<p>
-<p><b>Что делают:</b></p>
-<ul>
-    <li>Очень низкая посадка за счет жесткой пневмо- или койловеров.</li>
-    <li>Отрицательный развал колес, особенно на задней оси.</li>
-    <li>Широкие диски с сильно вывернутыми наружу краями (hellaflush).</li>
-    <li>Часто используются обвесы «оклеванс» (kissel) — широкие колесные арки.</li>
-    <li>Машины могут быть в «боевом» состоянии — царапины, вмятины (это часть эстетики).</li>
-    <li>Машины: Nissan Silvia (S13, S14, S15), Nissan Skyline, Toyota Chaser, Mark II.</li>
-</ul>
-</p>
-
-<p>
-    <a href="404.html"><img src="images/Drift.png" alt="Drift" width="200" height="300" hspace="10" align = 'middle'></a>
-    <font><b>Дрифт-стайл (Drift Style)</b></font>
-<p><b>Философия:</b> Функциональность для дрифта. Внешний вид следует за целью.<p>
-<p><b>Что делают:</b></p>
-<ul>
-    <li>Широкие обвесы для улучшения аэродинамики и защиты кузова при столкновениях с отбойниками.</li>
-    <li>Вывернутые колеса с большим вылетом для максимального сцепления.</li>
-    <li>Часто отсутствуют бамперы, фары, капот — все ради легкости и вентиляции.</li>
-    <li>Яркие, кричащие ливреи, спонсорские наклейки.</li>
-    <li>Большой выхлоп (как правило, «труба» напрямую).</li>
-    <li>Машины: Nissan Silvia, Toyota AE86, Nissan 180SX, Mazda RX-7 (FD).</li>
-</ul>
-</p>
+<footer>
+    <p>Разработчик: Козлова Кристина Викторовна</p>
+    <p>Группа: Б9123-09.03.04 подгруппа 4</p>
+</footer>
 </body>
 </html>
